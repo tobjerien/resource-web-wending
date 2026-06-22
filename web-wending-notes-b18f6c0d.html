@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>问鼎H5 · 再遇常新</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            color: #1e1e1e;
+            background-color: #faf9f7;
+        }
+
+        /* 深色头图 — 温和的深蓝灰渐变 */
+        .hero {
+            background: linear-gradient(145deg, #1e2632 0%, #2d3747 100%);
+            padding: 6rem 2rem 5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: linear-gradient(to top, #faf9f7, transparent);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: #eaeef3;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero .subhead {
+            font-size: 1.15rem;
+            color: #b6c3d4;
+            max-width: 640px;
+            margin: 0 auto 1.2rem auto;
+            font-weight: 300;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 0.3rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: #cbd8e8;
+            letter-spacing: 0.3px;
+        }
+
+        /* 浅色正文区 */
+        .content {
+            max-width: 1000px;
+            margin: -2rem auto 0 auto;
+            padding: 3rem 2rem 4rem 2rem;
+            background: #ffffff;
+            border-radius: 28px 28px 0 0;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
+            position: relative;
+            z-index: 2;
+        }
+
+        .intro {
+            font-size: 1.08rem;
+            margin-bottom: 2.8rem;
+            color: #2e3848;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid #e8e6e2;
+        }
+
+        .intro strong {
+            color: #1a2332;
+            font-weight: 500;
+        }
+
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+            margin: 2.5rem 0 2.8rem 0;
+        }
+
+        .highlight-card {
+            background: #f5f3f0;
+            padding: 1.6rem 1.4rem 1.8rem 1.4rem;
+            border-radius: 18px;
+            transition: background 0.2s, transform 0.1s;
+        }
+
+        .highlight-card:hover {
+            background: #efede9;
+        }
+
+        .highlight-card h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #1f2b3c;
+            margin-bottom: 0.6rem;
+            letter-spacing: 0.3px;
+        }
+
+        .highlight-card p {
+            font-size: 0.96rem;
+            color: #3d4a5a;
+        }
+
+        .scene-section {
+            margin: 2.8rem 0 2.4rem 0;
+        }
+
+        .scene-section h2 {
+            font-size: 1.6rem;
+            font-weight: 450;
+            color: #1a2537;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .scene-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .scene-list li {
+            padding: 0.6rem 0 0.6rem 1.2rem;
+            position: relative;
+            color: #2d3848;
+            border-bottom: 1px solid #efede9;
+        }
+
+        .scene-list li::before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            color: #b8865e;
+            font-weight: 700;
+            font-size: 1.4rem;
+            line-height: 1.2;
+        }
+
+        .scene-list li:last-child {
+            border-bottom: none;
+        }
+
+        .reminder {
+            background: #f7f6f3;
+            border-left: 4px solid #b8865e;
+            padding: 1.4rem 1.8rem;
+            border-radius: 12px;
+            margin: 2.8rem 0 2rem 0;
+        }
+
+        .reminder p {
+            font-size: 1rem;
+            color: #2e3a4d;
+        }
+
+        .reminder a {
+            color: #a6774b;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dashed #cfa97b;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        .reminder a:hover {
+            color: #855f38;
+            border-bottom: 1px solid #855f38;
+        }
+
+        .faq-mini {
+            margin: 2.5rem 0 2rem 0;
+        }
+
+        .faq-mini h2 {
+            font-size: 1.3rem;
+            font-weight: 450;
+            color: #1a2537;
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            color: #2b3a4d;
+            margin-bottom: 0.25rem;
+            font-size: 1rem;
+        }
+
+        .faq-item p {
+            color: #4b5a6b;
+            font-size: 0.96rem;
+            padding-left: 0.2rem;
+        }
+
+        .more-hint {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e5e2dd;
+            font-size: 0.95rem;
+            color: #6a7a8d;
+        }
+
+        .more-hint a {
+            color: #a6774b;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .more-hint a:hover {
+            text-decoration: underline;
+            color: #7b5b3c;
+        }
+
+        /* 强调色用于链接 (除特殊区以外) */
+        a {
+            color: #a6774b;
+            transition: color 0.15s;
+        }
+
+        a:hover {
+            color: #7b5b3c;
+        }
+
+        /* 响应式 */
+        @media (max-width: 820px) {
+            .hero { padding: 4.5rem 1.5rem 4rem 1.5rem; }
+            .hero h1 { font-size: 2.2rem; }
+            .highlight-grid { grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+            .content { padding: 2rem 1.5rem 3rem 1.5rem; }
+        }
+
+        @media (max-width: 540px) {
+            .hero h1 { font-size: 1.8rem; }
+            .hero .subhead { font-size: 1rem; }
+            .highlight-grid { grid-template-columns: 1fr; }
+            .content { border-radius: 18px 18px 0 0; padding: 1.8rem 1.2rem 2.5rem 1.2rem; }
+            .faq-item strong { font-size: 0.95rem; }
+            .scene-section h2 { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 -->
+    <section class="hero">
+        <h1>再次留意，总有新意</h1>
+        <p class="subhead">那些曾让你驻足的功能，如今更细腻、更贴近使用习惯。</p>
+        <span class="tagline">收藏 · 回顾 · 持续</span>
+    </section>
+
+    <!-- 浅色正文区 -->
+    <main class="content">
+
+        <!-- 摘要式开头：从再次访问与关注切入 -->
+        <div class="intro">
+            <p>我们常常在某个工具上完成一件事后便匆匆离开，很少再回头打量它。<strong>但真正值得留意的</strong>，往往是那些在静默中持续打磨的细节。<a href="https://web-wending.com">问鼎H5</a> 正是这样一处可以反复查看、常看常新的地方——它并非一夜之间变得耀眼，而是在一次次的调整中，渐渐贴近你真实的工作流。</p>
+        </div>
+
+        <!-- 亮点卡片：三个角度 -->
+        <div class="highlight-grid">
+            <div class="highlight-card">
+                <h3>轻量 · 启动利落</h3>
+                <p>无需繁琐配置，打开即用。每次访问都像第一次一样流畅，但内容与体验却在悄悄进化。</p>
+            </div>
+            <div class="highlight-card">
+                <h3>线索 · 结构清晰</h3>
+                <p>从开始到深入，信息层级保持克制。你不必费力寻找关键功能，它们在最适合的位置等你。</p>
+            </div>
+            <div class="highlight-card">
+                <h3>安静 · 专注内容</h3>
+                <p>没有弹窗干扰，没有催促注册。页面只做一件事：呈现你需要了解的细节，然后让你自己决定。</p>
+            </div>
+        </div>
+
+        <!-- 使用建议 / 场景 -->
+        <div class="scene-section">
+            <h2>什么情况下值得再看一眼？</h2>
+            <ul class="scene-list">
+                <li>你正在筹备一个轻量 H5 活动页，希望参考成熟的交互骨架。</li>
+                <li>你之前用过某些功能，但想确认最新版本是否补上了你期待的细节。</li>
+                <li>你只是偶尔路过，却被某一处文案或动效吸引，想存个书签日后细看。</li>
+                <li>你想推荐给同事或朋友一个「没有噪音」的工具页面，让对方自己感受。</li>
+            </ul>
+        </div>
+
+        <!-- 克制的访问说明 / 收藏提示 -->
+        <div class="reminder">
+            <p>
+                🔖 如果你觉得目前用不上，也值得放一个书签。<br>
+                再次访问 <a href="https://web-wending.com">问鼎H5</a> 时，你可能会发现布局微调了、帮助提示更清晰了，或是一个你不曾注意的小功能被优化了。<br>
+                变化不是声势浩大的改版，而是一种持续的关注。
+            </p>
+        </div>
+
+        <!-- FAQ 摘要（不使用“常见问题”标题，改用“你可能也会好奇”） -->
+        <div class="faq-mini">
+            <h2>你可能也会好奇</h2>
+            <div class="faq-item">
+                <strong>这个页面需要注册或登录吗？</strong>
+                <p>不需要。你可以直接浏览所有公开内容，没有任何强制账户体系。部分深度功能（如有）会清晰提示使用条件，但不会隐藏基础信息。</p>
+            </div>
+            <div class="faq-item">
+                <strong>我上次看到的某个功能找不到了，是下架了吗？</strong>
+                <p>极少出现功能完全消失的情况。多数时候它只是被重新组织或合并到了更合理的分类下。建议使用页面内搜索或导航索引。</p>
+            </div>
+            <div class="faq-item">
+                <strong>为什么推荐收藏后再访问？</strong>
+                <p>因为有些改进是渐进的。隔一段时间回来，你可能会注意到更顺畅的动画、更清晰的字段，或更体贴的错误提示。收藏是一把钥匙，打开持续更新的门。</p>
+            </div>
+        </div>
+
+        <!-- 温和收尾 + 链接再次出现（嵌入句子，且满足可见文本 == “问鼎H5”） -->
+        <div class="more-hint">
+            如果你愿意把这个页面加入书签，或偶尔回来看看——<a href="https://web-wending.com">问鼎H5</a> 一直都在，不多打扰，但始终有所准备。
+        </div>
+
+    </main>
+
+</body>
+</html>
